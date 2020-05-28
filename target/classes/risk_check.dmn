@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_132d1gg" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <decision id="checkRisk" name="Risk Check">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="input_1" label="Employment">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>employment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1iccpap" label="Category">
+        <inputExpression id="LiteralExpression_0e2cn3t" typeRef="string">
+          <text>category</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Risk Level" name="riskLevel" typeRef="string" />
+      <rule id="DecisionRule_1sa9nzd">
+        <inputEntry id="UnaryTests_1e29xal">
+          <text>"Unemployed"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1op6ck0">
+          <text>not("Basic Package")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tpnmda">
+          <text>"red"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oggvkn">
+        <inputEntry id="UnaryTests_1r0moo3">
+          <text>"Freelancer", "Self-employed"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f9692j">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l658se">
+          <text>"red"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1arfii3">
+        <inputEntry id="UnaryTests_1sq68tv">
+          <text>"Salaried"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aiatuk">
+          <text>"Premium Package"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04b37w8">
+          <text>"yellow"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
